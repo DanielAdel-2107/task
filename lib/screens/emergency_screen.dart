@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task/provider/option_provider.dart';
 import 'package:task/widgets/custom_drop_down_button.dart';
+import 'package:task/widgets/custom_type_drop_down_button.dart';
 
 class EmergencyScreen extends StatelessWidget {
   const EmergencyScreen({super.key});
@@ -19,10 +20,15 @@ class EmergencyScreen extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        for (int i = 0; i < provider.optionData.length; i++)
-                          CustomDropDownButton(
-                            model: provider.optionData[i],
-                          ),
+                        provider.selectedTypeOption == ''
+                            ? CustomTypeDropDownButton(
+                                provider: provider,
+                              )
+                            : CustomDropDownButton(
+                                provider: provider,
+                                model: provider
+                                    .optionData[provider.selectedIndex!],
+                              ),
                       ],
                     ),
                   )

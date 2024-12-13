@@ -9,6 +9,28 @@ class OptionProvider with ChangeNotifier {
 
   late List<OptionModel> optionData;
   bool loadOptionData = false;
+  String _selectedOption = '';
+  int? selectedIndex;
+//
+  String _selectedTypeOption = '';
+
+  get selectedTypeOption => _selectedTypeOption;
+
+  set selectedTypeOptionTitle(value) {
+    selectedIndex = value - 1;
+    _selectedTypeOption = optionData[selectedIndex!].label;
+
+    notifyListeners();
+  }
+
+//
+  get selectedOption => _selectedOption;
+
+  set selectedOptionTitle(value) {
+    _selectedOption = value;
+    notifyListeners();
+  }
+  //
 
   setupOptionModelData() {
     List<dynamic> data = StaticData.data['data']['attributes']['options'];

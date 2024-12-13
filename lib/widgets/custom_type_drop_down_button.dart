@@ -2,13 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:task/model/option_model.dart';
 import 'package:task/provider/option_provider.dart';
 
-class CustomDropDownButton extends StatelessWidget {
-  const CustomDropDownButton({
+class CustomTypeDropDownButton extends StatelessWidget {
+  const CustomTypeDropDownButton({
     super.key,
-    required this.model,
     required this.provider,
   });
-  final OptionModel model;
   final OptionProvider provider;
 
   @override
@@ -16,7 +14,6 @@ class CustomDropDownButton extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(model.label),
         Container(
           margin: const EdgeInsets.symmetric(vertical: 10),
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -24,13 +21,14 @@ class CustomDropDownButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             color: Colors.teal,
           ),
-          child: DropdownButton<String>(
+          child: DropdownButton<int>(
             onChanged: (value) {
-              provider.selectedOptionTitle = value ?? "Selecte Option";
+              provider.selectedTypeOptionTitle =
+                  value ?? provider.selectedTypeOption;
             },
-            hint: Text(provider.selectedOption == ''
-                ? "Selecte Option"
-                : provider.selectedOption),
+            hint: Text(provider.selectedTypeOption == ''
+                ? "Select Option"
+                : provider.selectedTypeOption),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             isExpanded: true,
             underline: const SizedBox(),
@@ -38,11 +36,10 @@ class CustomDropDownButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             dropdownColor: Colors.grey,
             items: [
-              // for (int i = 0; i < model.suboptions.length; i++)
-              for (int j = 0; j < model.suboptions[0].suboptions!.length; j++)
+              for (int j = 0; j < provider.optionData.length; j++)
                 DropdownMenuItem(
-                  value: model.suboptions[0].suboptions![j].label,
-                  child: Text(model.suboptions[0].suboptions![j].label),
+                  value: j + 1,
+                  child: Text(provider.optionData[j].label),
                 ),
             ],
           ),
