@@ -14,9 +14,6 @@ class CustomElevatedButton extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image.asset('assets/images/emergancy_call.png').animate().fade().scale(
-              duration: const Duration(milliseconds: 700),
-            ),
         Container(
           width: double.infinity,
           height: 60,
@@ -37,8 +34,8 @@ class CustomElevatedButton extends StatelessWidget {
               shadowColor: Colors.transparent,
             ),
             onPressed: onPressed,
-            child: const Text(
-              "Emergency",
+            child: Text(
+              label,
               style: TextStyle(fontSize: 20),
             ),
           ).animate().fade().scale(

@@ -39,4 +39,11 @@ class OptionProvider with ChangeNotifier {
     loadOptionData = true;
     notifyListeners();
   }
+
+  reset() {
+    selectedIndex = null;
+    _selectedOption = '';
+    _selectedTypeOption = '';
+    notifyListeners();
+  }
 }

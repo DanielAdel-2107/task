@@ -20,10 +20,30 @@ class StaticData {
                     "type": "motorcycle_accident",
                     "label": "حادث دراجة نارية",
                   },
-                  // ... المزيد من الأنواع
+                  {
+                    "type": "truck_accident",
+                    "label": "حادث شاحنة",
+                  },
+                  {
+                    "type": "bicycle_accident",
+                    "label": "حادث دراجة هوائية",
+                  }
                 ]
               },
-              // ... المزيد من أنواع الحوادث
+              {
+                "type": "robbery",
+                "label": "سرقة",
+                "suboptions": [
+                  {
+                    "type": "armed_robbery",
+                    "label": "سرقة مسلحة",
+                  },
+                  {
+                    "type": "home_burglary",
+                    "label": "اقتحام منزل",
+                  }
+                ]
+              }
             ]
           },
           {
@@ -36,13 +56,42 @@ class StaticData {
                 "suboptions": [
                   {"type": "chest_pain", "label": "ألم في الصدر"},
                   {"type": "shortness_of_breath", "label": "ضيق في التنفس"},
-                  // ... المزيد من الأعراض
+                  {"type": "unconsciousness", "label": "فقدان الوعي"}
                 ]
               },
-              // ... المزيد من الحالات الطبية
+              {
+                "type": "injury",
+                "label": "إصابة",
+                "suboptions": [
+                  {"type": "head_injury", "label": "إصابة في الرأس"},
+                  {"type": "fracture", "label": "كسر"},
+                  {"type": "bleeding", "label": "نزيف"}
+                ]
+              }
             ]
           },
-          // ... المزيد من أنواع الطوارئ
+          {
+            "type": "fire_department",
+            "label": "طوارئ إطفاء",
+            "suboptions": [
+              {
+                "type": "building_fire",
+                "label": "حريق مبنى",
+                "suboptions": [
+                  {"type": "residential_fire", "label": "حريق سكني"},
+                  {"type": "commercial_fire", "label": "حريق تجاري"}
+                ]
+              },
+              {
+                "type": "wildfire",
+                "label": "حريق غابات",
+                "suboptions": [
+                  {"type": "forest_fire", "label": "حريق غابة"},
+                  {"type": "bush_fire", "label": "حريق شجيرات"}
+                ]
+              }
+            ]
+          }
         ]
       }
     }
