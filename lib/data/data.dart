@@ -15,18 +15,44 @@ class StaticData {
                   {
                     "type": "car_accident",
                     "label": "حادث سيارة",
+                    "suboptions": [
+                      {"type": "minor_damage", "label": "أضرار بسيطة"},
+                      {"type": "major_damage", "label": "أضرار كبيرة"},
+                      {"type": "collision", "label": "تصادم"}
+                    ]
                   },
                   {
                     "type": "motorcycle_accident",
                     "label": "حادث دراجة نارية",
+                    "suboptions": [
+                      {
+                        "type": "single_motorcycle",
+                        "label": "حادث دراجة منفردة"
+                      },
+                      {
+                        "type": "motorcycle_car_collision",
+                        "label": "تصادم مع سيارة"
+                      }
+                    ]
                   },
                   {
                     "type": "truck_accident",
                     "label": "حادث شاحنة",
+                    "suboptions": [
+                      {"type": "cargo_spill", "label": "تسرب حمولة"},
+                      {"type": "overturn", "label": "انقلاب شاحنة"}
+                    ]
                   },
                   {
                     "type": "bicycle_accident",
                     "label": "حادث دراجة هوائية",
+                    "suboptions": [
+                      {
+                        "type": "pedestrian_collision",
+                        "label": "تصادم مع مشاة"
+                      },
+                      {"type": "vehicle_collision", "label": "تصادم مع مركبة"}
+                    ]
                   }
                 ]
               },
@@ -37,10 +63,18 @@ class StaticData {
                   {
                     "type": "armed_robbery",
                     "label": "سرقة مسلحة",
+                    "suboptions": [
+                      {"type": "store_robbery", "label": "سرقة متجر"},
+                      {"type": "bank_robbery", "label": "سرقة بنك"}
+                    ]
                   },
                   {
                     "type": "home_burglary",
                     "label": "اقتحام منزل",
+                    "suboptions": [
+                      {"type": "forced_entry", "label": "اقتحام بالقوة"},
+                      {"type": "stealth_entry", "label": "اقتحام خفي"}
+                    ]
                   }
                 ]
               }
@@ -67,6 +101,14 @@ class StaticData {
                   {"type": "fracture", "label": "كسر"},
                   {"type": "bleeding", "label": "نزيف"}
                 ]
+              },
+              {
+                "type": "child_birth",
+                "label": "ولادة طارئة",
+                "suboptions": [
+                  {"type": "premature_birth", "label": "ولادة مبكرة"},
+                  {"type": "complications", "label": "مضاعفات الولادة"}
+                ]
               }
             ]
           },
@@ -88,6 +130,14 @@ class StaticData {
                 "suboptions": [
                   {"type": "forest_fire", "label": "حريق غابة"},
                   {"type": "bush_fire", "label": "حريق شجيرات"}
+                ]
+              },
+              {
+                "type": "chemical_fire",
+                "label": "حريق كيميائي",
+                "suboptions": [
+                  {"type": "industrial_fire", "label": "حريق صناعي"},
+                  {"type": "hazardous_material", "label": "مواد خطرة"}
                 ]
               }
             ]

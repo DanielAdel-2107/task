@@ -23,7 +23,7 @@ class CustomTypeDropDownButton extends StatelessWidget {
           ),
           child: DropdownButton<int>(
             onChanged: (value) {
-              provider.selectedTypeOptionTitle =
+              provider.selectedTypeOption =
                   value ?? provider.selectedTypeOption;
             },
             hint: Text(provider.selectedTypeOption == ''

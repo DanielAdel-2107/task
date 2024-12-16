@@ -25,7 +25,7 @@ class OptionModel {
 
   @override
   String toString() {
-    return 'OptionModel(type: $type, label: $label,suboptions: $suboptions)';
+    return 'OptionModel(type: $type, label: $label, suboptions: $suboptions)';
   }
 }
 
@@ -58,5 +58,10 @@ class Suboptions {
       'label': label,
       'suboptions': suboptions?.map((item) => item.toJson()).toList(),
     };
+  }
+
+  @override
+  String toString() {
+    return 'Suboptions(type: $type, label: $label, suboptions: $suboptions)';
   }
 }

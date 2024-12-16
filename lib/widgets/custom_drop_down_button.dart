@@ -7,16 +7,23 @@ class CustomDropDownButton extends StatelessWidget {
     super.key,
     required this.model,
     required this.provider,
+    required this.suboptions,
+    this.onChanged,
+    this.label = "Select Option",
+    required this.title,
   });
+  final String title;
   final OptionModel model;
   final OptionProvider provider;
-
+  final List<Suboptions> suboptions;
+  final Function(int?)? onChanged;
+  final String label;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(model.label),
+        Text(title),
         Container(
           margin: const EdgeInsets.symmetric(vertical: 10),
           padding: const EdgeInsets.symmetric(horizontal: 10),
@@ -24,13 +31,10 @@ class CustomDropDownButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
             color: Colors.red,
           ),
-          child: DropdownButton<String>(
-            onChanged: (value) {
-              provider.selectedOptionTitle = value ?? "Selecte Option";
-            },
-            hint: Text(provider.selectedOption == ''
-                ? "Selecte Option"
-                : provider.selectedOption),
+          child: DropdownButton<int>(
+            onChanged: onChanged,
+            hint:
+                Text(label == '' ? "Selecte Option" : provider.selectedOption),
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             isExpanded: true,
             underline: const SizedBox(),
@@ -39,10 +43,10 @@ class CustomDropDownButton extends StatelessWidget {
             dropdownColor: Colors.grey,
             items: [
               // for (int i = 0; i < model.suboptions.length; i++)
-              for (int j = 0; j < model.suboptions[0].suboptions!.length; j++)
+              for (int j = 0; j < suboptions.length; j++)
                 DropdownMenuItem(
-                  value: model.suboptions[0].suboptions![j].label,
-                  child: Text(model.suboptions[0].suboptions![j].label),
+                  value: j,
+                  child: Text(suboptions[j].label),
                 ),
             ],
           ),

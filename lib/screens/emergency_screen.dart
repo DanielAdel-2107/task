@@ -27,11 +27,37 @@ class EmergencyScreen extends StatelessWidget {
                             ? CustomTypeDropDownButton(
                                 provider: provider,
                               )
-                            : CustomDropDownButton(
-                                provider: provider,
-                                model: provider
-                                    .optionData[provider.selectedIndex!],
-                              ),
+                            : (provider.selectedOption == '')
+                                ? CustomDropDownButton(
+                                    provider: provider,
+                                    model: provider.optionData[
+                                        provider.selectedTypeIndex!],
+                                    suboptions: provider
+                                        .optionData[provider.selectedTypeIndex!]
+                                        .suboptions,
+                                    onChanged: (value) {
+                                      provider.selectedOption =
+                                          value ?? "Selecte Option";
+                                    },
+                                    label: provider.selectedOption,
+                                    title: provider.selectedTypeOption,
+                                  )
+                                : CustomDropDownButton(
+                                    model: provider.optionData[
+                                        provider.selectedTypeIndex!],
+                                    title: provider.selectedOption,
+                                    provider: provider,
+                                    suboptions: provider
+                                        .optionData[provider.selectedTypeIndex!]
+                                        .suboptions[
+                                            provider.selectedOptionIndex!]
+                                        .suboptions!,
+                                    onChanged: (value) {
+                                      provider.selectedCategoryOption =
+                                          value ?? "Selecte Option";
+                                    },
+                                    label: provider.selectedCategoryOption,
+                                  ),
                         const Spacer(),
                         CustomTimeLineTile(
                           title: 'Select Type',
@@ -46,10 +72,12 @@ class EmergencyScreen extends StatelessWidget {
                           isDone: provider.selectedOption == '' ? false : true,
                         ),
                         CustomTimeLineTile(
-                          title: 'Complete',
-                          subTitle: "Done",
+                          title: 'Category',
+                          subTitle: provider.selectedCategoryOption,
                           isLast: true,
-                          isDone: provider.selectedOption == '' ? false : true,
+                          isDone: provider.selectedCategoryOption == ''
+                              ? false
+                              : true,
                         ),
                         const Spacer(),
                         CustomTextButton(
