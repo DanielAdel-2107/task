@@ -17,7 +17,7 @@ class FirstScreen extends StatelessWidget {
                 .animate()
                 .fade()
                 .scale(
-                  duration: const Duration(milliseconds: 700),
+                  duration: const Duration(milliseconds: 300),
                 ),
             CustomElevatedButton(
               label: 'Emergency',

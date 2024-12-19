@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:task/provider/edit_profile_provider.dart';
 import 'package:task/screens/first_screen.dart';
 
 void main() {
@@ -10,9 +12,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: FirstScreen(),
+    return ChangeNotifierProvider(
+      create: (context) => EditProfileProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: FirstScreen(),
+      ),
     );
   }
 }

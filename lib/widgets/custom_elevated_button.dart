@@ -39,12 +39,12 @@ class CustomElevatedButton extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
           ).animate().fade().scale(
-                delay: const Duration(milliseconds: 1400),
-                duration: const Duration(milliseconds: 500),
+                delay: const Duration(milliseconds: 600),
+                duration: const Duration(milliseconds: 300),
               ),
         ).animate().fade().scale(
-              delay: const Duration(milliseconds: 700),
-              duration: const Duration(milliseconds: 500),
+              delay: const Duration(milliseconds: 300),
+              duration: const Duration(milliseconds: 300),
             ),
       ],
     );

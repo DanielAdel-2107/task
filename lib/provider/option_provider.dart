@@ -49,7 +49,6 @@ class OptionProvider with ChangeNotifier {
     List<dynamic> data = StaticData.data['data']['attributes']['options'];
     var dataModel = data.map((item) => OptionModel.fromJson(item)).toList();
     optionData = dataModel;
-    print(optionData);
     loadOptionData = true;
     notifyListeners();
   }
