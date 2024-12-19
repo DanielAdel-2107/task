@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:task/screens/user_profile_screen.dart';
 import 'package:task/widgets/user_image.dart';
 import 'package:task/widgets/wave_clipper.dart';
 

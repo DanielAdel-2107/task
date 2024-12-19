@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:task/provider/edit_profile_provider.dart';
-import 'package:task/screens/edit_user_profile_screen.dart';
 import 'package:task/screens/user_profile_screen.dart';
+import 'package:task/screens/edit_user_profile_screen.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({
