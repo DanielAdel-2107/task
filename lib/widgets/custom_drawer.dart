@@ -33,13 +33,13 @@ class CustomDrawer extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Consumer<EditProfileProvider>(
-                            builder: (context, provider, child) {
-                          return CircleAvatar(
+                    child: Consumer<EditProfileProvider>(
+                        builder: (context, provider, child) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircleAvatar(
                             radius: 30,
                             child: provider.image == null
                                 ? Padding(
@@ -58,18 +58,18 @@ class CustomDrawer extends StatelessWidget {
                                       ),
                                     ),
                                   ),
-                          );
-                        }),
-                        const SizedBox(height: 10),
-                        const Text(
-                          'Daniel Adel',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
                           ),
-                        )
-                      ],
-                    ),
+                          const SizedBox(height: 10),
+                          Text(
+                            provider.userName ?? 'Daniel Adel',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
+                          )
+                        ],
+                      );
+                    }),
                   ),
                 ],
               ),
@@ -80,7 +80,7 @@ class CustomDrawer extends StatelessWidget {
             title: const Text('Profile Screen'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const UserProfileScreen();
+                return const EditUserProfileScreen();
               }));
             },
           ),
@@ -89,7 +89,7 @@ class CustomDrawer extends StatelessWidget {
             title: const Text('Edit Profile Screen'),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const EditUserProfileScreen();
+                return const UserProfileScreen();
               }));
             },
           )

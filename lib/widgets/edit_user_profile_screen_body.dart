@@ -11,7 +11,9 @@ class EditUserProfileScreenBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        CustomUserAppBar(),
+        CustomUserAppBar(
+          enabelEdit: true,
+        ),
         CustomEditUserDetails(),
       ],
     );
